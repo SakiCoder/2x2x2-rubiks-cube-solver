@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>2x2x2 Rubik's Cube Solver</title>
+</head>
+<body>
+    <div class="container">
+      <h1>2x2x2 Rubik's Cube Solver</h1>
+      <div class="input-container">
+        <div id="cube">
+          <div id="front" style="transform: translateZ(100px);">
+            <table>
+              <tbody>
+                <tr>
+                  <td><button onclick="colorSticker('i')" id="i" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('j')" id="j" class="sticker"></button></td>
+                </tr>
+                <tr>
+                  <td><button onclick="colorSticker('l')" id="l" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('k')" id="k" class="sticker"></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="right" style="transform: rotateY(90deg) translateZ(100px);">
+            <table>
+              <tbody>
+                <tr>
+                  <td><button onclick="colorSticker('m')" id="m" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('n')" id="n" class="sticker"></button></td>
+                </tr>
+                <tr>
+                  <td><button onclick="colorSticker('p')" id="p" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('o')" id="o" class="sticker"></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="top" style="transform: rotateX(90deg) rotateZ(0deg) translateY(-100px); transform-origin: center top;">
+            <table>
+              <tbody>
+                <tr>
+                  <td><button onclick="colorSticker('a')" id="a" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('b')" id="b" class="sticker"></button></td>
+                </tr>
+                <tr>
+                  <td><button onclick="colorSticker('d')" id="d" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('c')" id="c" class="sticker"></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="left" style="transform: rotateY(-90deg) translateZ(100px);">
+            <table>
+              <tbody>
+                <tr>
+                  <td><button onclick="colorSticker('e')" id="e" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('f')" id="f" class="sticker"></button></td>
+                </tr>
+                <tr>
+                  <td><button onclick="colorSticker('h')" id="h" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('g')" id="g" class="sticker"></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="back" style="transform: rotateY(180deg) translateZ(100px);">
+            <table>
+              <tbody>
+                <tr>
+                  <td><button onclick="colorSticker('q')" id="q" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('r')" id="r" class="sticker"></button></td>
+                </tr>
+                <tr>
+                  <td><button onclick="colorSticker('t')" id="t" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('s')" id="s" class="sticker"></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="bottom" style="transform: rotateX(90deg) translateY(100px); transform-origin: bottom center;">
+            <table>
+              <tbody>
+                <tr>
+                  <td><button onclick="colorSticker('u')" id="u" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('v')" id="v" class="sticker"></button></td>
+                </tr>
+                <tr>
+                  <td><button onclick="colorSticker('x')" id="x" class="sticker"></button></td>
+                  <td><button onclick="colorSticker('w')" id="w" class="sticker"></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="button-container">
+          <button id="rotate-btn" onclick="rotateCube()">Rotate cube</button>
+          <button id="reset-btn" onclick="reset()">Reset</button>
+        </div>
+        <div class="color-palette">
+            <button class="color-box white" onclick="selectColor('white')"></button>
+            <button class="color-box yellow" onclick="selectColor('yellow')"></button>
+            <button class="color-box red" onclick="selectColor('red')"></button>
+            <button class="color-box orange" onclick="selectColor('orange')"></button>
+            <button class="color-box blue" onclick="selectColor('blue')"></button>
+            <button class="color-box green" onclick="selectColor('green')"></button>
+        </div>
+        <button id="solve-btn" onclick="solve();">Solve</button>
+      </div>
+      <div class="output-container hidden">
+        <h2 id="final-alg"></h2>
+        <twisty-player
+        id="twisty-player"
+        experimental-setup-alg=""
+        puzzle="2x2x2"
+        alg=""
+        ></twisty-player>
+        <button id="done-btn" onclick="done()">Done</button>
+      </div>
+    </div>
+    <script src="https://cdn.cubing.net/js/cubing/twisty" type="module"></script>
+    <script src="main.js"></script>
+</body>
+</html>
